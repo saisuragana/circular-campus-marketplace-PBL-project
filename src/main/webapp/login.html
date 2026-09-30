@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in | Circular Campus</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="aurora" aria-hidden="true"></div>
+
+<header class="nav glass">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Circular<em>Campus</em></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a class="nav-link" href="marketplace">Marketplace</a>
+      <a class="nav-link" href="cart">Cart</a>
+      <a class="btn btn-primary btn-sm" href="create-account.html">Create account</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <section class="auth">
+
+    <div class="auth-copy">
+      <h1>Welcome back to campus.</h1>
+      <p>Your cart, your listings and your wallet are waiting exactly where you left them.</p>
+      <ul class="auth-points">
+        <li>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M16 24l6 6 11-12"/></svg>
+          <span>Anything you added as a guest moves into your account when you log in.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="12" width="34" height="24" rx="4"/><path d="M7 20h34M33 26h4"/></svg>
+          <span>Every purchase is paid from the campus wallet balance held in your account.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="auth-card glass">
+      <h2>Log in</h2>
+      <p class="muted">Use your campus email and password.</p>
+
+      <p class="form-msg" id="formMsg" role="alert" hidden></p>
+
+      <!-- action is relative: it becomes /campus-marketplace-final/login -->
+      <form action="login" method="POST" autocomplete="on">
+        <label class="form-field" for="email">
+          <span>Email</span>
+          <input id="email" name="email" type="email" required autocomplete="email"
+                 placeholder="student@test.com">
+        </label>
+        <label class="form-field" for="password">
+          <span>Password</span>
+          <input id="password" name="password" type="password" required minlength="6"
+                 autocomplete="current-password" placeholder="Your password">
+        </label>
+        <button class="btn btn-primary btn-block" type="submit">Log in</button>
+      </form>
+
+      <a class="btn btn-ghost btn-block" href="marketplace">Continue as guest</a>
+      <p class="auth-alt">New here? <a href="create-account.html">Create an account</a></p>
+      <p class="muted" style="font-size:0.8rem;text-align:center;margin:10px 0 0;">
+        Demo account: student@test.com / 123456
+      </p>
+    </div>
+
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p class="foot-brand">Circular Campus</p>
+  <p class="foot-tag">Buy less. Reuse more. Campus smarter.</p>
+  <p class="foot-note">Web Technologies PBL &middot; Java Servlets, JDBC and MySQL.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>

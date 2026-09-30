@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create account | Circular Campus</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="aurora" aria-hidden="true"></div>
+
+<header class="nav glass">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Circular<em>Campus</em></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a class="nav-link" href="marketplace">Marketplace</a>
+      <a class="nav-link" href="cart">Cart</a>
+      <a class="nav-link" href="login.html">Log in</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <section class="auth">
+
+    <div class="auth-copy">
+      <h1>Join the campus resale loop.</h1>
+      <p>One account lets you list items, buy from other students and keep a record of everything that changed hands.</p>
+      <ul class="auth-points">
+        <li>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="12" width="34" height="24" rx="4"/><path d="M7 20h34M33 26h4"/></svg>
+          <span>New accounts start with a demo wallet of &#8377;1,000 so you can test a purchase straight away.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M16 24l6 6 11-12"/></svg>
+          <span>Your password is stored as a SHA-256 hash, never as plain text.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="auth-card glass">
+      <h2>Create account</h2>
+      <p class="muted">It takes about twenty seconds.</p>
+
+      <p class="form-msg" id="formMsg" role="alert" hidden></p>
+
+      <form id="signupForm" action="create-account" method="POST" autocomplete="on">
+        <label class="form-field" for="name">
+          <span>Full name</span>
+          <input id="name" name="name" type="text" required minlength="2" maxlength="100"
+                 autocomplete="name" placeholder="Ananya Rao">
+        </label>
+        <label class="form-field" for="email">
+          <span>Email</span>
+          <input id="email" name="email" type="email" required maxlength="100"
+                 autocomplete="email" placeholder="you@college.edu">
+        </label>
+        <div class="form-row">
+          <label class="form-field" for="password">
+            <span>Password</span>
+            <input id="password" name="password" type="password" required minlength="6"
+                   autocomplete="new-password" placeholder="At least 6 characters">
+          </label>
+          <label class="form-field" for="confirmPassword">
+            <span>Confirm password</span>
+            <input id="confirmPassword" name="confirmPassword" type="password" required minlength="6"
+                   autocomplete="new-password" placeholder="Type it again">
+          </label>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Create account</button>
+      </form>
+
+      <p class="auth-alt">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p class="foot-brand">Circular Campus</p>
+  <p class="foot-tag">Buy less. Reuse more. Campus smarter.</p>
+  <p class="foot-note">Web Technologies PBL &middot; Java Servlets, JDBC and MySQL.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>

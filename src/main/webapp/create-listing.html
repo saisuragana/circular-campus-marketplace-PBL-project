@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sell an item | Circular Campus</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="aurora" aria-hidden="true"></div>
+
+<header class="nav glass">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Circular<em>Campus</em></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a class="nav-link" href="marketplace">Marketplace</a>
+      <a class="nav-link is-active" href="create-listing.html">Sell an item</a>
+      <a class="nav-link" href="my-listings">My listings</a>
+      <a class="nav-link" href="transactions">Transactions</a>
+      <a class="nav-link" href="cart">Cart</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="page">
+
+  <h1>Sell an item</h1>
+  <p class="muted">You need to be logged in to publish. Everything here is saved to the listings table.</p>
+
+  <p class="form-msg" id="formMsg" role="alert" hidden></p>
+
+  <div class="sell-layout">
+
+    <form class="sell-form glass" id="sellForm" action="create-listing" method="POST" enctype="multipart/form-data">
+      <label class="form-field" for="title">
+        <span>Title</span>
+        <input id="title" name="title" type="text" required minlength="3" maxlength="150"
+               placeholder="Java Programming Textbook">
+      </label>
+
+      <div class="form-row">
+        <label class="form-field" for="category">
+          <span>Category</span>
+          <select id="category" name="category" required>
+            <option value="">Choose a category</option>
+            <option>Books</option>
+            <option>Electronics</option>
+            <option>Hostel Essentials</option>
+            <option>Sports</option>
+            <option>Accessories</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label class="form-field" for="condition">
+          <span>Condition</span>
+          <select id="condition" name="condition" required>
+            <option value="">Choose a condition</option>
+            <option>New</option>
+            <option>Like New</option>
+            <option>Good</option>
+            <option>Fair</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label class="form-field" for="price">
+          <span>Price in rupees</span>
+          <input id="price" name="price" type="number" min="1" max="999999" step="1" required placeholder="350">
+        </label>
+        <label class="form-field" for="quantity">
+          <span>Quantity</span>
+          <input id="quantity" name="quantity" type="number" min="1" max="99" step="1" value="1" required>
+        </label>
+      </div>
+
+      <label class="form-field" for="description">
+        <span>Description</span>
+        <textarea id="description" name="description" required minlength="10" maxlength="1000"
+                  placeholder="What is included, how much it was used, anything a buyer should know."></textarea>
+      </label>
+
+      <label class="form-field" for="keywords">
+        <span>Keywords, separated by commas</span>
+        <input id="keywords" name="keywords" type="text" maxlength="255"
+               placeholder="java, programming, textbook">
+      </label>
+
+      <div class="image-upload-block">
+        <div class="image-upload-head">
+          <div>
+            <strong>Product images</strong>
+            <span class="muted image-help">Upload 2–5 clear JPG, PNG or WEBP images. Max 5 MB each.</span>
+          </div>
+          <span class="tag" id="imageCountBadge">0 images</span>
+        </div>
+
+        <label class="upload-box" for="productImages">
+          <span class="upload-icon" aria-hidden="true">＋</span>
+          <span><strong>Choose product images</strong><br>
+          <small>Multiple images are required</small></span>
+          <input id="productImages" name="productImages" type="file"
+                 accept="image/jpeg,image/png,image/webp" multiple required>
+        </label>
+
+        <p class="form-msg" id="imageError" role="alert" hidden></p>
+        <div class="image-preview-grid" id="imagePreview" aria-live="polite"></div>
+      </div>
+
+      <label class="condition-confirm">
+        <input type="checkbox" name="conditionConfirm" value="YES" required>
+        <span>I confirm that the photos and description accurately represent the current condition of the product.</span>
+      </label>
+
+      <button class="btn btn-primary btn-block" type="submit">Publish listing</button>
+      <p class="muted" style="font-size:0.82rem;margin:10px 0 0;">
+        Automated checks validate the listing information and image files. Physical damage detection is not claimed.
+      </p>
+    </form>
+
+    <div class="preview-col">
+
+      <article class="preview-card card glass">
+        <div class="preview-visual">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6l16 9v18l-16 9-16-9V15z"/><path d="M8 15l16 9 16-9M24 24v18"/></svg>
+        </div>
+        <div class="preview-body">
+          <p class="card-meta">
+            <span class="tag" id="pvCat">Category</span>
+            <span class="cond" id="pvCond">Condition</span>
+          </p>
+          <h3 class="card-title" id="pvTitle">Your item title</h3>
+          <p class="card-price"><span id="pvPrice">&#8377;0.00</span>
+            <span class="stock" id="pvQty">1 available</span></p>
+          <p class="muted" style="margin:0;font-size:0.8rem;">Live preview of your card</p>
+        </div>
+      </article>
+
+      <section class="suggest-box glass">
+        <h3>Smart Suggestions</h3>
+        <p class="muted" id="suggestNote">Start typing a title and suggestions appear here.</p>
+        <div class="suggest-list" id="suggestList"></div>
+        <p class="muted" style="font-size:0.78rem;margin:14px 0 0;">
+          These come from a rule table written in Java (AIRecommendationServlet). No external AI service is called.
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-foot">
+  <p class="foot-brand">Circular Campus</p>
+  <p class="foot-tag">Buy less. Reuse more. Campus smarter.</p>
+  <p class="foot-note">Web Technologies PBL &middot; Java Servlets, JDBC and MySQL.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
